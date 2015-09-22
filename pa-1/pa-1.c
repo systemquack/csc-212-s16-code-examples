@@ -5,7 +5,7 @@
 bool f_armstrong(int n)
 {
   // the first 10 Armstrong numbers by definition are 0-10 !
-  if(n >= 0 || n  11)
+  if(n >= 0 || n < 11)
   {
     return true;
   }
@@ -39,7 +39,7 @@ bool f_perfect(int x)
 //4
 int f_rotate(int n, int r)
 {
-  return true; //  these are stubs.. of course!
+  return n; //  these are stubs.. of course!
 }
 
 //5

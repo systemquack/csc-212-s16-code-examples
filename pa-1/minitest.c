@@ -7,15 +7,15 @@ void text_output(int question_number, bool answer);
 // This program is a driver to test the first assignment functions.
 //  The first 4 are tested.
 //
-int main(int argc, char* argv)
+int main(int argc, char** argv)
 {
   bool ans;
   int armstrong_test = 8;  // true
-  char brackets[4] = { '[', '[', ']', ']', '\0' };  // true
+  char brackets[5] = "[[]]";  // true
   int perfect_test = 28; // true
   int rotate_test = 1234;
   int r = 1;
-  int rotate_test_solution = 4123;
+  int rotate_test_solution = 2341;
   int rotate_test_ans = 0;
 
 
@@ -23,13 +23,13 @@ int main(int argc, char* argv)
 
 
   ans = f_armstrong(armstrong_test);
-  text_output(1,ans);
+  text_output(1, ans==true);
 
   ans = f_brackets(brackets);
-  text_output(2,ans);
+  text_output(2, ans==true);
 
   ans = f_perfect(perfect_test);
-  text_output(3,ans);
+  text_output(3, ans==true);
 
   rotate_test_ans = f_rotate(rotate_test,r);
   if(rotate_test_ans == rotate_test_solution)
@@ -41,8 +41,6 @@ int main(int argc, char* argv)
       ans = false;
   }
   text_output(4,ans);
-  
-
 }
 
 //

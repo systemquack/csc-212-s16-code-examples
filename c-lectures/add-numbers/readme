@@ -1,0 +1,3 @@
+you can compile this example with:
+
+gcc main.c sum.c -o main
