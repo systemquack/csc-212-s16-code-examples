@@ -58,5 +58,3 @@ void text_output(int question_number, bool answer)
         printf("   Failed!\n\n");
     }
 }
-
-
