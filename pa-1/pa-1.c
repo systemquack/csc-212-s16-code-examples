@@ -4,8 +4,8 @@
 
 bool f_armstrong(int n)
 {
-  // the first 10 Armstrong numbers by definition are 0-10 !
-  if(n >= 0 || n < 11)
+  // the first 10 Armstrong numbers by definition are 0-9 !
+  if(n >= 0 && n < 10)
   {
     return true;
   }
@@ -55,8 +55,8 @@ int f_rotate(int n, int r)
 //void f_strings(char* s1, char* s2, char* s3);
 
 //9
-//void f_sort(int x, int y, int z, char* list);
+//void f_sort(int x, int y, int z, int* list);
 
 //10
 //
-//char* f_cubes_sum(int n);
+//int* f_cubes_sum(int n);
