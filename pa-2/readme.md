@@ -2,7 +2,7 @@
 You can compile this project by typing: 
 
 ```
-g++ main.cc dllist.cc memmanager.cc -o main
+g++ -std=c++11 main.cc dllist.cc memmanager.cc -o main
 ```
 
 And the run it by calling:
