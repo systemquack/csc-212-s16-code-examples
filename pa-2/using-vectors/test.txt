@@ -1,0 +1,27 @@
+d
+aff 100 p
+aff 250 q
+aff 250 r
+aff 200 s
+aff 100 t
+d
+f s
+f t
+f q
+f p
+f r
+d
+aff 50 a
+aff 75 b
+aff 125 c
+d
+f a
+f b
+f c
+d
+aff 200 var1
+aff 100 var2
+aff 10 var3
+aff 125 var4
+d
+q
