@@ -1,5 +1,5 @@
 
-You can compile this project by typing: 
+You can compile this project by typing:
 
 ```
 g++ -std=c++11 main.cc dllist.cc memmanager.cc -o main
@@ -9,6 +9,12 @@ And the run it by calling:
 
 ```
 ./main
+```
+
+You can also use the test file by calling:
+
+```
+./main < test.txt
 ```
 
 Remember that the following commands will be available.
