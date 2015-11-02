@@ -80,7 +80,7 @@ void LList::display() {
 
 // this function will return a pointer to the first block in the list
 // that has size >= than the input parameter b
-// if no such a block exists, then NULL is returned 
+// if no such a block exists, then NULL is returned
 MemBlock *LList::find_first_by_size(uint32_t b) {
     MemBlock *p = head;
     while (p) {
@@ -94,7 +94,7 @@ MemBlock *LList::find_first_by_size(uint32_t b) {
 
 // this function will return a pointer to the block in the list
 // that has address equal to parameter a
-// if no such a block exists, then NULL is returned 
+// if no such a block exists, then NULL is returned
 MemBlock *LList::find_by_address(uint32_t a) {
     MemBlock *p = head;
     while (p) {
@@ -125,5 +125,5 @@ void LList::insert(uint32_t a, uint32_t s) {
     // update tail
     if (tail == NULL || tail->nxt ) {
         tail = q;
-    } 
-} 
+    }
+}
