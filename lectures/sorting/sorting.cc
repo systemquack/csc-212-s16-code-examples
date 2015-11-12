@@ -1,8 +1,52 @@
 #include <time.h>
 #include <iostream>
 #include <iterator>
+#include <random>
 
 typedef unsigned long int ul_int;
+
+ul_int partition(ul_int *A, ul_int lo, ul_int hi) {
+    ul_int temp, i = lo, j = hi + 1;
+    while (1) {
+        // while A[i] < pivot, increase i
+        while (A[++i] < A[lo])
+            if (i == hi) break;
+        // while A[i] > pivot, decrease j
+        while (A[lo] < A[--j])
+            if (j == lo) break;
+        // if i and j cross exit the loop
+        if (i >= j) break;
+        // swap A[i] and A[j]
+        temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
+    }
+    // swap the pivot with A[j]
+    temp = A[lo];
+    A[lo] = A[j];
+    A[j] = temp;
+    // return pivot's position
+    return j;
+}
+
+void r_quicksort(ul_int *A, ul_int lo, ul_int hi) {
+    // base case
+    if (hi <= lo) return;
+    // partition
+    ul_int p = partition(A, lo, hi);
+    // recursively sort halves (also avoid negative indices)
+    if (p > 0) r_quicksort(A, lo, p-1);
+    r_quicksort(A, p+1, hi);
+}
+
+void quicksort(ul_int *A, ul_int n) {
+    // shuffle the array
+    std::random_device rng;
+    std::mt19937 urng(rng());
+    std::shuffle(A, A+n, urng);
+    // call recursive quicksort
+    r_quicksort(A, 0, n-1);
+}
 
 void merge(ul_int *A, ul_int *aux, ul_int lo, ul_int mid, ul_int hi) {
     // copy array
@@ -101,41 +145,36 @@ int is_sorted(ul_int *A, ul_int n) {
 }
 
 int main() {
+    const int n_algo = 5;
+    // array of function names
+    const char * fun_names[n_algo] = {"QuickSort", "MergeSort", "InsertionSort", "SelectionSort", "BubbleSort"};
+    // array of pointers to functions
+    void (*fun_ptrs[n_algo])(ul_int *, ul_int) = {&quicksort, &mergesort, &insertionsort, &selectionsort, &bubblesort};
+
     std::cout << "Reading input sequence ...\n";
 
     // read first number
     ul_int n, i;
     std::cin >> n;
 
-    // allocate space for array
+    // allocate space for arrays
     ul_int *array = new ul_int[n];
     ul_int *arr_copy = new ul_int[n];
 
     // read the sequence
-    for (i = 0 ; i < n ; i++)
+    for (i = 0 ; i < n ; i++) {
         std::cin >> array[i];
+    }
 
     std::cout << "Applying sorting algorithms ...\n";
-
-    // make a copy, measure time for call, check correctness
-    std::copy(array, array+n, arr_copy);
-    time_func(&mergesort, arr_copy, n, "MergeSrt");
-    if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
-
-    // make a copy, measure time for call, check correctness
-    std::copy(array, array+n, arr_copy);
-    time_func(&insertionsort, arr_copy, n, "InsertSrt");
-    if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
-
-    // make a copy, measure time for call, check correctness
-    std::copy(array, array+n, arr_copy);
-    time_func(&selectionsort, arr_copy, n, "SelectSrt");
-    if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
-
-    // make a copy, measure time for call, check correctness
-    std::copy(array, array+n, arr_copy);
-    time_func(&bubblesort, arr_copy, n, "BubbleSrt");
-    if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
+    for (int i = 0 ; i < 2 ; i ++) {
+        // make a copy
+        std::memcpy(arr_copy, array, n*sizeof(ul_int));
+        // apply algorithm and measure time
+        time_func(fun_ptrs[i], arr_copy, n, fun_names[i]);
+        // check correctness
+        if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
+    }
 
     // free memory
     delete [] array;
