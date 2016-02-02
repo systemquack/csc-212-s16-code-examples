@@ -1,6 +1,6 @@
 # C++ BootCamp
 
-Welcome ... We expect
+Welcome ... We expect you to watch videos from [link to edX](http://www.yahoo.com)
 
 # Session 1  (2/7 3-4p @ Tyler 55)
 
