@@ -6,6 +6,13 @@ To get started, make an account at [edX](https://www.edx.org/course/introduction
 We will use this free course as an introduction to C++.  The material here will complement
 what we do in the Boot Camp, so you are expected to review this before attending!
 
+** Classes and Objects 2/8 and 2/9 **
+Monday 4-6p (Tim)
+Tuesday 4-6p (Nathan)
+
+** Pointers and Memory Management 2/15 and 2/16 **
+Monday 4-6p (Tim)
+Tuesday 4-6p (Nathan)
 
 Once you enroll in the C++ online course, you may need to watch Module 0 to know how
 the website works.
