@@ -3,7 +3,7 @@
 
 #include<iostream>
 using namespace std;
-
+//Function Prototypes
 int powLoop(int base, int exp);
 int powRecur(int base, int exp);
 
@@ -22,7 +22,7 @@ int main(){
 
     return 0;
 }
-
+//Function implementation
 int powLoop(int base,int exp){
     if(exp) {
         int result = base;
