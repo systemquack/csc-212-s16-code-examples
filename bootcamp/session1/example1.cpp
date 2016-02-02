@@ -4,7 +4,8 @@
 #include<iostream>
 using namespace std;
 
-int pow(int base, int exp);
+int powLoop(int base, int exp);
+int powRecur(int base, int exp);
 
 int main(){
     int base, exp;
@@ -17,10 +18,22 @@ int main(){
     return 0;
 }
 
-int pow(int base,int exp){
-    int i, result = base;
-    for(int i = 1;i < exp; i++){
-        result = base*result;
+int powLoop(int base,int exp){
+    if(exp) {
+        int result = base;
+        for(int i = 1;i < exp; i++){
+            result = base*result;
+        }
+        return result;
     }
-    return result;
+    else
+        return 1;
+}
+
+int powRecur(int base,int exp){
+    if(exp) {
+        return base * powRecur(base,exp - 1);
+    }
+    else
+        return 1;
 }
