@@ -1,6 +1,8 @@
-# Topics
+# C++ BootCamp
 
-# Session 1
+Welcome ... We expect
+
+# Session 1  (2/7 3-4p @ Tyler 55)
 
 - variables
 - types
