@@ -9,11 +9,16 @@ int powRecur(int base, int exp);
 
 int main(){
     int base, exp;
+
     cout<<"Enter a base\n";
     cin>>base;
+
     cout<<"What power shall we raise it to?\n";
     cin>>exp;
-    cout<<"The result is: "<< pow(base,exp);
+
+    cout<<"The result with a loop is: "<< powLoop(base,exp) << endl;
+
+    cout<<"The result with recursion is: "<< powRecur(base,exp) << endl;
 
     return 0;
 }
