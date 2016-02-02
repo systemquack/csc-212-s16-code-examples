@@ -14,3 +14,5 @@ Welcome ... We expect
 # Session 3
 
 # Session 4
+
+[Destination](http://www.google.com)
