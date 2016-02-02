@@ -26,14 +26,14 @@ int powLoop(int base,int exp){
         }
         return result;
     }
-    else
-        return 1;
+
+    return 1;
 }
 
 int powRecur(int base,int exp){
     if(exp) {
         return base * powRecur(base,exp - 1);
     }
-    else
-        return 1;
+
+    return 1;
 }
