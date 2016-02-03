@@ -2,55 +2,38 @@
 
 Welcome to the URI C++ CSC212 Boot Camp!
 
-To get started, make an account at [edX](https://www.edx.org/course/introduction-c-microsoft-dev210x-0)
-We will use this free course as an introduction to C++.  The material here will complement
-what we do in the Boot Camp, so you are expected to review this before attending!
+To get started, make an account at [edX](https://www.edx.org/course/introduction-c-microsoft-dev210x-0).
+We will use this free course as an introduction to C++. The course has four modules which you should
+watch prior to the first Boot Camp (2/8).  This material will give you a foundation for some of the trickier
+aspects of C++ that we will be going over.
 
-** Classes and Objects 2/8 and 2/9 **
-Monday 4-6p (Tim)
-Tuesday 4-6p (Nathan)
-
-** Pointers and Memory Management 2/15 and 2/16 **
-Monday 4-6p (Tim)
-Tuesday 4-6p (Nathan)
-
-Once you enroll in the C++ online course, you may need to watch Module 0 to know how
-the website works.
-
-# Session 1  (TBA @ Tyler Computer Lab 055)
-
-## Watch edX Modules 1 and 2 before the camp!
-
-During this session we will focus on:
-
-- general structure of a C++ program (header files, prototypes, etc.)
-- variables (naming, etc.)
-- types (bool, etc.)
-- functions (syntax, rules, etc.)
+All Boot Camp sessions will be held in **Tyler 055**. 
+Make sure to bring your laptop because we will be writing code!
 
 
-# Session 2
+###Schedule(Choose one day per session):
+ **Session 1**
+ Monday(2/8) 4-6p with Tim
+ Tuesday(2/9) 4-6p with Nathan
 
-## Watch edX Modules 3 and 4 before the camp!
+ **Session 2**
+ Monday(2/15) 4-6p with Tim
+ Tuesday(2/16) 4-6p with Nathan
+
+##Agenda:
+
+### Session 1
 
 During this session we will focus on:
+- program structure (header files, prototypes)
+- classes (syntax, automatically generated constructor/destructor, etc.)
+- objects
 
-- classes  (syntax, automatically generated constructor/destructor, etc.)
 
-
-# Session 3
+### Session 2
 
 During this session we will focus on:
-
-
+- pointers / references
 - heap / stack / memory
 - memory allocation (new, delete)
-
-
-# Session 4
-
-During this session we will focus on:
-
-- debugging
- (demonstration of typical errors at compile and runtime and ideas on how to solve )
 
