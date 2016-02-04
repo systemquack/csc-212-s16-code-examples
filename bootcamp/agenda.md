@@ -23,16 +23,16 @@ Make sure to bring your laptop because we will be writing code!
 ## Agenda:
 
 ### Session 1
-- Introduction and Compilers
-- Structure of a program
-- Basic Input/Output
-- Functions (passing parameters by argument/reference)
-- Name visibility
-- Arrays
+- [Introduction and Compilers](http://www.cplusplus.com/doc/tutorial/introduction/)
+- [Structure of a program](http://www.cplusplus.com/doc/tutorial/program_structure/)
+- [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/)
+- [Functions (passing parameters by argument/reference)](http://www.cplusplus.com/doc/tutorial/functions/)
+- [Name visibility](http://www.cplusplus.com/doc/tutorial/namespaces/)
+- [Arrays](http://www.cplusplus.com/doc/tutorial/arrays/)
 
 ### Session 2
-- Character sequences (strings)
-- Pointers
-- Dynamic Memory
-- Classes
-- Special members
+- [Character sequences (strings)](http://www.cplusplus.com/doc/tutorial/ntcs/)
+- [Pointers](http://www.cplusplus.com/doc/tutorial/pointers/)
+- [Dynamic Memory](http://www.cplusplus.com/doc/tutorial/dynamic/)
+- [Classes](http://www.cplusplus.com/doc/tutorial/classes/)
+- [Special members](http://www.cplusplus.com/doc/tutorial/classes2/)
