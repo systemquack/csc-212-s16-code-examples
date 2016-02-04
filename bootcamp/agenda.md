@@ -20,21 +20,19 @@ Make sure to bring your laptop because we will be writing code!
      Monday(2/15) 4-6p with Tim  
      Tuesday(2/16) 4-6p with Nathan  
 
-##Agenda:
+## Agenda:
 
 ### Session 1
-
-During this session we will focus on:
-- difference between compilers and interpreters (brief discussion)
-- program structure (header files, prototypes)
-- classes (syntax, automatically generated constructor/destructor, etc.)
-- objects
-
+- Introduction and Compilers
+- Structure of a program
+- Basic Input/Output
+- Functions (passing parameters by argument/reference)
+- Name visibility
+- Arrays
 
 ### Session 2
-
-During this session we will focus on:
-- pointers / references
-- heap / stack / memory
-- memory allocation (new, delete)
-
+- Character sequences (strings)
+- Pointers
+- Dynamic Memory
+- Classes
+- Special members
