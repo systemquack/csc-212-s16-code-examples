@@ -25,6 +25,7 @@ Make sure to bring your laptop because we will be writing code!
 ### Session 1
 
 During this session we will focus on:
+- difference between compilers and interpreters (brief discussion)
 - program structure (header files, prototypes)
 - classes (syntax, automatically generated constructor/destructor, etc.)
 - objects
