@@ -11,10 +11,11 @@ All Boot Camp sessions will be held in **Tyler 055**.
 Make sure to bring your laptop because we will be writing code!
 
 
-###Schedule(Choose one day per session):
-   **Session 1**  
-     Monday(2/8) 4-6p with Tim  
-     Tuesday(2/9) 4-6p with Nathan  
+### Schedule(Choose one day per session):
+
+**Session 1**  
+Monday(2/8) 4-6p with Tim  
+Tuesday(2/9) 4-6p with Nathan  
 
    **Session 2**  
      Monday(2/15) 4-6p with Tim  
