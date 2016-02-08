@@ -36,3 +36,9 @@ Tuesday (02/16) 4-6p with Nathan
 - [Dynamic Memory](http://www.cplusplus.com/doc/tutorial/dynamic/)
 - [Classes](http://www.cplusplus.com/doc/tutorial/classes/)
 - [Special members](http://www.cplusplus.com/doc/tutorial/classes2/)
+- 
+
+## C++ Slides
+- [Washington University](https://courses.cs.washington.edu/courses/cse333/16wi/calendar/lecturelist.html)
+- [Brown University](https://cs.brown.edu/courses/cs123/resources/c++_mini_course.pdf)
+- [Standford University](http://web.stanford.edu/class/cs106l/course-reader/full_course_reader.pdf)
