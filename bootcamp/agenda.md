@@ -26,7 +26,7 @@ Tuesday (02/16) 4-6p with Nathan
 - [Introduction and Compilers](http://www.cplusplus.com/doc/tutorial/introduction/)
 - [Structure of a program](http://www.cplusplus.com/doc/tutorial/program_structure/)
 - [Basic Input/Output](http://www.cplusplus.com/doc/tutorial/basic_io/)
-- [Functions (passing parameters by argument/reference)](http://www.cplusplus.com/doc/tutorial/functions/)
+- [Functions (passing parameters by value/reference)](http://www.cplusplus.com/doc/tutorial/functions/)
 - [Name visibility](http://www.cplusplus.com/doc/tutorial/namespaces/)
 - [Arrays](http://www.cplusplus.com/doc/tutorial/arrays/)
 
