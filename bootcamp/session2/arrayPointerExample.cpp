@@ -16,7 +16,8 @@ int main() {
 
     return 0;
 }
-
+//What does this function do and why?
+//Note that size was passed with the array
 void arrayPrint(char charray[], int size) {
 
     for (int i = 0; i < size; i++)
