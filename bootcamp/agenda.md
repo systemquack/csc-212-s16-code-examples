@@ -12,8 +12,8 @@ Make sure to bring your laptop because we will be writing code!
 
 ## Schedule (choose one day per session):
 
-**Session 1**
-Tuesday (02/9) 4-6p with Nathan
+**Session 1**  
+Tuesday (02/9) 4-6p with Nathan  
 Friday (02/12) 4-6p with Tim
 
 **Session 2**  
