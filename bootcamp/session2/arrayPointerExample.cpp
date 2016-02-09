@@ -2,16 +2,17 @@
 
 using namespace std;
 
+//Function Prototype
 void arrayPrint(char[], int size);
 
 int main() {
 
     int intArray[10];
-
+    
+    //Why choose this number?
     intArray[0]=1094861636;
     int size = 4;
-
-
+    
     arrayPrint((char*)intArray, size);
 
     return 0;
