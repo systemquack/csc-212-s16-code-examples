@@ -6,6 +6,8 @@ using namespace std;
 //Function Prototypes
 int powLoop(int base, int exp);
 int powRecur(int base, int exp);
+int ternaryRecur(int base, int exp);
+
 
 int main(){
     int base, exp;
@@ -19,6 +21,9 @@ int main(){
     cout<<"The result with a loop is: "<< powLoop(base,exp) << endl;
 
     cout<<"The result with recursion is: "<< powRecur(base,exp) << endl;
+
+    cout<<"The result with recursion is: "<< ternaryRecur(base,exp) << endl;
+
 
     return 0;
 }
@@ -41,4 +46,10 @@ int powRecur(int base,int exp){
     }
 
     return 1;
+}
+
+int ternaryPower(int base, int exp) {
+
+    return (!exp) ? 1 : base*ternaryPower(base,exp-1);
+
 }
