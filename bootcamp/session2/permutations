@@ -1,0 +1,62 @@
+//Here is a program that makes all the permutations
+//Of a given string
+//See http://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+
+
+
+#include <iostream>
+
+using namespace std;
+
+void permutation(char *str,int index,int arraySize);
+void charSwap(char *str1,char *str2);
+
+main() {
+
+int arraySize;
+
+cout << "How many characters in your string? ";
+cin >> arraySize;
+
+arraySize+=1;
+
+//Since we wanted the user to input the array size
+//We need to create a new instance of an array
+//Which puts the memory on the heap
+//At the end of the program this array will
+//need to be deleted manually
+char* str = new char[arraySize];
+
+cout << "What is your string? ";
+cin >> str;
+
+permutation(str,0,arraySize-1);
+
+//Here we delete the array we created on the heap
+delete [] str;
+
+return 0;
+
+}
+
+void permutation(char *str,int index,int arraySize){
+
+
+    if (index == arraySize-1) {
+        cout << str << endl;
+    }
+    else {
+        for (int i = index; i<arraySize; i++) {
+            charSwap(str+index,str+i);
+            permutation(str,index+1,arraySize);
+            charSwap(str+index,str+i);
+        }
+    }
+}
+
+void charSwap(char *str1,char *str2){
+    char temp;
+    temp = *str1;
+    *str1 = *str2;
+    *str2 = temp;
+}
