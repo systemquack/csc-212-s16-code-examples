@@ -11,7 +11,7 @@ using namespace std;
 void permutation(char *str,int index,int arraySize);
 void charSwap(char *str1,char *str2);
 
-main() {
+int main() {
 
 int arraySize;
 
