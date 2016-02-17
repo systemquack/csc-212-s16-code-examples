@@ -17,21 +17,32 @@ stops.
 
 Here is an example of computing a factorial with recursion:
 
+``` c++
+
 // recursive factorial function
+
 long fact(long n)  {
 
+
    if (n == 0)         // base case, 0! = 1
+
       return 1;
+
    else
+
       return (n * fact(n-1));   // recursive call
 
+
 }
+
+```
 
 ## Task 1
 
 Write a C++ program to recursively remove a character from a 300 character string.
-The character you will remove is 'q'.  The strings you will operate on will be sent to
-you**.  (The focus here is on the recursion, so feel free to embellish the program once
+The character you will remove is 'q'.  The strings you will operate on will be available 
+to you on the [judge server] (judge.cs.uri.edu), look under task 1. 
+(The focus here is on the recursion, so feel free to embellish the program once
 you have it working.  Spend no more than 15 minutes on this, if possible.)
 
 ## Task 2
@@ -78,34 +89,53 @@ Usual recursive searches can be exhausting because they are exhaustive. In backt
 we will try one choice and only undo that decision if it doesn't work out. Here is some
 generic pseudocode to illustrate the concept:
 
+```
+
 bool Solve( configuration conf)
+
 {
+
   // Base Case - all recursive functions need at least one base case
+
   if (no more choices)
+
   {
+
     return (conf is goal state)
+
   }
 
+
   for (all available choices)
+
   {
+
     try one choice c
+
       // recursively solve after making the choice
 
     ok = Solve(conf with choice c made);
+
     if (ok)
+
       return true
+
     else
+
       unmake choice c
+
   }
 
+
   return false   // we tried all the choices, and no solution was found
+
 }
+
+```
 
 In order to make this code as clear as possible, helper functions can be used. You will 
 need to write the code for the is_safe() function. It has only to test if a queen can be
-placed at row, col on the board. Please do not make drastic changes to the code, but if 
-you feel you must, please document them.
+placed at row, col on the board. 
 
-When you have finished the code and it works to your satisfaction, please submit your
-recursive string code (including the output*), the answer to the question in task #2, and
-your completed queen code to the TA at gdepace@my.uri.edu to receive credit for the lab.
+When you have finished the code and it works to your satisfaction, please submit this on
+the judge under task 3. 
