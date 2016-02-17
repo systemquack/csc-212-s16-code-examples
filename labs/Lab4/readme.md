@@ -23,16 +23,10 @@ Here is an example of computing a factorial with recursion:
 
 long fact(long n)  {
 
-
    if (n == 0)         // base case, 0! = 1
-
       return 1;
-
    else
-
       return (n * fact(n-1));   // recursive call
-
-
 }
 
 ```
@@ -50,8 +44,8 @@ you have it working.  Spend no more than 15 minutes on this, if possible.)
 Use your debugger to set a breakpoint in your code and watch it execute through a few
 recursive calls. Note what is happening and then answer the following question:
 
-In an iterative solution, we would need to store a new string as we build it, or some-
-how recopy sections of the input string as the target character is removed.  Your
+In an iterative solution, we would need to store a new string as we build it, or somehow
+recopy sections of the input string as the target character is removed.  Your
 recursive code shouldn't explicitly have copies or extra storage.  How does the 
 recursive solution solve this? To put it another way, where does it store the string it
 is working on?
@@ -107,7 +101,6 @@ bool Solve( configuration conf)
 
 
   for (all available choices)
-
   {
 
     try one choice c
@@ -117,18 +110,12 @@ bool Solve( configuration conf)
     ok = Solve(conf with choice c made);
 
     if (ok)
-
       return true
-
     else
-
       unmake choice c
-
   }
 
-
   return false   // we tried all the choices, and no solution was found
-
 }
 
 ```
