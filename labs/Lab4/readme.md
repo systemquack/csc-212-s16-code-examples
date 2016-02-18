@@ -32,7 +32,7 @@ long fact(long n)  {
 
 Write a C++ program to recursively remove a character from a 300 character string.
 The character you will remove is 'q'.  The strings you will operate on will be available
-to you on the [judge server](https://judge.cs.uri.edu), look under task 1.
+to you on the [judge server](http://judge.cs.uri.edu), look under task 1.
 (The focus here is on the recursion, so feel free to embellish the program once
 you have it working.  Spend no more than 15 minutes on this, if possible.)
 
@@ -49,7 +49,8 @@ is working on?
 
 ## Task 3
 
-Use the code from the repository called nqueens.cpp in the [Lab 4 folder](https://github.com/URI-CSC/csc-212-s16-code-examples/tree/master/labs).
+Use the code from the repository called nqueens.cpp in the
+[Lab 4 folder](https://github.com/URI-CSC/csc-212-s16-code-examples/tree/master/labs).
 You will need to to fill in the missing C++ code to finish implementing the n-queens
 problem.
 
