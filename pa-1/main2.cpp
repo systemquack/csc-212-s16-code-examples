@@ -63,7 +63,7 @@ void create_maze(int n_tiles) {
         // pick a wall type randomly
         which = (std::rand() % 2) ? v_walls : h_walls;
         // pick a wall randomly
-        which += (std::rand() % (n_tiles*(n_tiles-1)));
+        which += ((std::rand()*std::rand()) % (n_tiles*(n_tiles-1)));
         if (! *which) continue;
         // find node indices
         int p = (*which > 0) ? std::floor(*which) : -(*which) - n_tiles;
