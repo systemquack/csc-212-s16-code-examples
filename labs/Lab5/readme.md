@@ -12,7 +12,7 @@ We have seen that arrays are nice to work with because we can access any element
 A different data structure called a linked list solves the size problem. In fact, as soon as we need another memory cell, we allocate it and add it to the list. We never need to guess at the final size, or recopy anything. We simply use a pointer to show where to get the next piece of data. What is the disadvantage of this approach? We lose the ability to access any element in constant time. We must now move through the list from the beginning each time.
 
 Let's look at a simple example of a linked list a little closer.
-In the 'list.h' file, we can see two classes. One is called Node, and the other is List. Node holds only the data (which could be anything, but for us it is a simple int) and a pointer to another Node.  The List class holds a pointer to the first Node and a pointer to the last Node and then some functions to operate on the List. 'list.cc' has the implementations of the 'insert_end', 'print', and 'remove' functions.'Main.cc' simply appends some data, and then removes it, printing after some operations.
+In the `list.h` file, we can see two classes. One is called Node, and the other is List. Node holds only the data (which could be anything, but for us it is a simple int) and a pointer to another Node.  The List class holds a pointer to the first Node and a pointer to the last Node and then some functions to operate on the List. `list.cc` has the implementations of the `insert_end`, `print`, and `remove` functions.`Main.cc` simply appends some data, and then removes it, printing after some operations.
 
 
 ## Using the debugger
@@ -24,21 +24,30 @@ We want to fill in this chart with the memory locations of the first 5 nodes.  W
 Memory Address | Name | Value
 -------------- | ---- | -----
 
---------------------
 
 --------------------
 
---------------------
 
 --------------------
 
---------------------
 
 --------------------
 
---------------------
 
 --------------------
+
+
+--------------------
+
+
+--------------------
+
+
+--------------------
+
+
+--------------------
+
 
 --------------------
 
