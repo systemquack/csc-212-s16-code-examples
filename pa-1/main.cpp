@@ -3,8 +3,9 @@
 #include <string>
 #include <ctime>
 #include <cmath>
+#include <vector>
 
-void print_binary(const float *array, int n) {
+void print_binary(const double *array, int n) {
     unsigned char byte = 0;
     // loop over all 'n' elements in 'array'
     for (int i = 0 ; i < n ; i++) {
@@ -31,35 +32,52 @@ void print_binary(const float *array, int n) {
 }
 
 void create_maze(int n_tiles) {
-    UF maze(n_tiles * n_tiles);
+    // create two sets of indices for walls
+    std::vector<unsigned int> h_idxs;
+    std::vector<unsigned int> v_idxs;
     // create an array for all vertical walls in an n x n maze
-    float *v_walls = new float [n_tiles * (n_tiles-1)];
-    float *h_walls = new float [n_tiles * (n_tiles-1)];
+    double *v_walls = new double [n_tiles * (n_tiles-1)];
+    // create an array for all horizontal walls in an n x n maze
+    double *h_walls = new double [n_tiles * (n_tiles-1)];
     // populate v_walls with codes indicating their position in the maze
     // every v_wall[k] connects nodes floor(v_wall[k]) with ceil(v_wall[k])
-    for (int i = 0, k = 0 ; i < n_tiles ; i++) {
-        for (int j = 0 ; j < (n_tiles-1) ; j++) {
+    for (unsigned int i = 0, k = 0 ; i < n_tiles ; i++) {
+        for (unsigned int j = 0 ; j < (n_tiles-1) ; j++) {
+            v_idxs.push_back(k);
             v_walls[k++] = (n_tiles*i) + j + 0.5;
         }
     }
     // populate h_walls with codes indicating their position in the maze
     // every -h_wall[k] connects nodes (h_wall[k]-n_tiles) with h_wall[k]
-    for (int i = 0, k = 0 ; i < (n_tiles-1) ; i++) {
-        for (int j = 0 ; j < n_tiles ; j++) {
-            h_walls[k++] = -((n_tiles*(i+1)) + j);
+    for (unsigned int i = 0, k = 0 ; i < (n_tiles-1) ; i++) {
+        for (unsigned int j = 0 ; j < n_tiles ; j++) {
+            h_idxs.push_back(k);
+            h_walls[k++] = -1.0 * ((n_tiles*(i+1)) + j);
         }
     }
-    // pick a random seed
+    // pick a random seed and shuffle indexes
     std::srand((unsigned) std::time(nullptr));
-    // randomly remove walls (using the UF structure)
-    float *which;
+    std::random_shuffle(v_idxs.begin(), v_idxs.end());
+    std::random_shuffle(h_idxs.begin(), h_idxs.end());
+    // initialize auxiliary variables
     int removed_walls = 0;
-    int max_rem_walls = n_tiles * n_tiles - 1;
+    int max_rem_walls = (n_tiles * n_tiles) - 1;
+    // record the time before creating the maze with the UF structure
+    clock_t tic = clock();
+    // create the maze object
+    UF maze(n_tiles * n_tiles);
+    double *which;
+    // randomly remove walls (using the UF structure)
     while (removed_walls < max_rem_walls) {
-        // pick a wall type randomly
-        which = (std::rand() % 2) ? v_walls : h_walls;
         // pick a wall randomly
-        which += (std::rand() % (n_tiles*(n_tiles-1)));
+        if (std::rand() % 2) {
+            which = &v_walls[v_idxs.back()];
+            v_idxs.pop_back();
+        } else {
+            which = &h_walls[h_idxs.back()];
+            h_idxs.pop_back();
+        }
+        // make sure wall exists
         if (! *which) continue;
         // find node indices
         int p = (*which > 0) ? std::floor(*which) : -(*which) - n_tiles;
@@ -71,10 +89,12 @@ void create_maze(int n_tiles) {
             removed_walls ++;
         }
     }
+    // capture the time after exiting the loop
+    clock_t toc = clock();
     // print binary codes for the walls (alternating by rows)
     std::cout << n_tiles << std::endl;
-    float *vw = v_walls;
-    float *hw = h_walls;
+    double *vw = v_walls;
+    double *hw = h_walls;
     for (int i = 0 ; i < 2*(n_tiles)-1 ; i++) {
         if (i % 2) { // horizontal
             print_binary(hw, n_tiles);
@@ -84,6 +104,8 @@ void create_maze(int n_tiles) {
             vw = vw + (n_tiles - 1);
         }
     }
+    // this will print the time to the standard error output
+    std::cerr << "Total time create_maze with N = " << n_tiles << ":\t" << (double)(toc-tic)/CLOCKS_PER_SEC << " secs.\n";
     // free memory
     delete [] h_walls;
     delete [] v_walls;
@@ -92,12 +114,8 @@ void create_maze(int n_tiles) {
 int main(int argc, char **argv) {
     // read n_tiles as a command line parameter
     int n_tiles = std::stoi(argv[1]);
-    // create a maze and record time
-    clock_t tic = clock();
+    // create a maze
     create_maze(n_tiles);
-    clock_t toc = clock();
-    // this will print the time to the standard error output
-    std::cerr << "Total time create_maze with N = " << n_tiles << ":\t" << (double)(toc-tic)/CLOCKS_PER_SEC << " secs.\n";
     // return success
     return 0;
 }
