@@ -83,10 +83,9 @@ void List::remove(int d) {
         return;
     
     // Case 2:
-    // the list has one node, delete it
+    // the list has one node
     if (temp->next == NULL)
     {
-        delete temp;
         head = NULL;
         tail = NULL;
     }
@@ -97,9 +96,8 @@ void List::remove(int d) {
         //
         //
         Node *prev = NULL;
-        while (temp != NULL)
+        while (temp != NULL && temp->data != d)
         {
-            if (temp->data == d) break;
             prev = temp;
             temp = temp->next;
         }
