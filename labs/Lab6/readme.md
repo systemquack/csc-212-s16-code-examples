@@ -1,27 +1,47 @@
-# Word Frequency with Binary Search Trees
+# Using our Linked Lists to Explore Word Frequency
 
 ## Lab 6
 
-Binary Search Trees are excellent for searching since their average seek time in O(lg n). Not bad.  In this lab you will finish constructing a BST class and then use it to search for words.
+We can apply our Linked Lists from the last lab to some problems involving classic texts.  Since our data structure can very easily add items, let’s add many.  We will be loading a dictionary and using it to look up words in a book.  Then we will be loading the book and counting the words.
 
-The class has been started for you with `bst.h` header file.  In the file there is a class definition.  Examine it and be sure you understand the `left` and `right` pointers.   You will need to write the `insert` and `find` functions.  You will probably need to add more functions as well.
 
-Once you have finished your tree class, you will make use of it.
+### Overview of the Repository
+
+The repository has code files:
+* dll.h       - complete header file for doubly linked lists
+* dll.cpp     - incomplete implementation of the lists
+* main.cpp    - code fragment illustrating reading a text file
+
+Dictionary files:
+* dictionary-brit.txt - plain text dictionary
+* dictionary.txt      - larger plain text dictionary
+
+Books:
+* AliceInWonderland.txt  - Lewis Carroll writes about Alice
+* ATaleOfTwoCities.txt   - Dickens’ French Revolution
+* PrideAndPrejudice.txt  - Jane Austen Classic
+* WarAndPeace.txt        - Tolstoi
+
+### What to do:
+
+1. Download the DLL class from the repository.  This has a complete `dll.h` file but an incomplete `dll.cpp` file.  You must finish it.  You will need to implement a `locate` function that searches the list for the given string parameter and returns a pointer to the node with the string, otherwise it returns NULL if the string is not found in the list.  The `insert` function inserts the string into the linked list, and `remove` removes the node with that string.  There is also a `find` function that returns true if the string is in the list and false otherwise.
+
+
+2. Once your class is complete, you will need to write a `main` function to test and use it.  
+
+Take the `main.cpp` file from the repository, because it has code that can open a text file and read in each word from that file.  Make sure you can understand what the code is doing.
 
 ## Part A
 
 The question you want to answer is:  What words from a text are not found in the dictionary?
 
-Choose one dictionary file and read it in to your binary tree.  There are two included in the labs folder.  Then you will have a searchable dictionary.  Then choose a classic text, and look up each word in the text using your binary tree dictionary.  Which dictionary is better?  For which text?
+Using your data structure, and the code to read in files, write code in `main.cpp` that will read in a dictionary file to your linked list.  This will give you a dictionary of words that you can access with your `find` function.  Select a book from the repository and look up all the words in that book to see if they are in the dictionary or not.  Output the words that are not in the dictionary to the screen.
 
 ## Part B
 
 The question you want to answer is:  What 3 words appear most often in a classic text?  (which words and how many times).
 
-In order to accomplish this, you will need to modify the binary search tree class you have written to include a data field for the frequency.  You will also need to modify `insert` so that when it inserts a word into the tree, it also increments the frequency.  Finally, you will need to make a new function to traverse the tree, looking for the top three frequencies.
 
-## Files
+In order to accomplish this, you will need to read in the book file to your list structure.  Be sure to call `increment_frequency` when the word is already in your list!  When it is read in, you should have the book in memory, in a searchable structure.  How will you be able to find the top 3 most frequent words?
 
-Included in the Lab folder are a few dictionaries and a few classic texts to use.  The `main.cpp` file has the code needed to read in these files, just make sure you put them in your working directory.
-
-Since more is required for this lab, please work with a partner or in a group of three.
+Note:  for this assignment, you will most likely write a function that will traverse your list, searching for the most frequent words.
