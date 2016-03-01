@@ -1,4 +1,4 @@
-# Using Doubly Linked Lists to Explore Word Frequency
+# Using Doubly Linked Lists to Explore Word Occurence
 
 ## Lab 6
 
