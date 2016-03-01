@@ -19,6 +19,7 @@ Dictionary files:
 Books:
 * AliceInWonderland.txt  - Lewis Carroll writes about Alice
 * ATaleOfTwoCities.txt   - Dickens’ French Revolution
+* Pride                  - Just a few words, for TESTING
 * PrideAndPrejudice.txt  - Jane Austen Classic
 * WarAndPeace.txt        - Tolstoi
 
