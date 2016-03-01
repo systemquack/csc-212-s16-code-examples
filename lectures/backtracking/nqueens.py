@@ -53,8 +53,7 @@ def print_board(board):
 				line += "Q "
 			else:
 				line += ". " 
-		print(line)
-	print()
+		print line
 
 ###########################################
 ### Main PROGRAM
