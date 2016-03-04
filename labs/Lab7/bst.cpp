@@ -15,7 +15,7 @@ BSTree::~BSTree()
     destroy(root);
 }
 
-void BSTree::destroy(BSTNode* p)
+void BSTree::destroy(BSTNode *p)
 {
     if(p)
     {
@@ -25,9 +25,9 @@ void BSTree::destroy(BSTNode* p)
     }
 }
 
-BSTNode* BSTree::find(BSTNode* node,std::string word)
+BSTNode* BSTree::find(BSTNode *node, std::string word)
 {
-    BSTNode* p = node;
+    BSTNode *p = node;
     
     if (p != NULL)
     {
@@ -41,12 +41,12 @@ BSTNode* BSTree::find(BSTNode* node,std::string word)
     return NULL;
 }
 
-void BSTree::increment_frequency(BSTNode* ptr)
+void BSTree::increment_frequency(BSTNode *ptr)
 {
     ptr->frequency++;
 }
 
-void BSTree::insert(BSTNode* *p, std::string word)
+void BSTree::insert(BSTNode **p, std::string word)
 {
     if(! *p)
         (*p) = new BSTNode(word);
@@ -61,7 +61,7 @@ void BSTree::insert(BSTNode* *p, std::string word)
 
 void BSTree::insert(std::string word)
 {
-    BSTNode* p = find(root, word);
+    BSTNode *p = find(root, word);
 
     if(p)
         increment_frequency(p);
@@ -69,20 +69,20 @@ void BSTree::insert(std::string word)
         insert(&root, word);
 }
 
-void BSTree::print_list(BSTNode* p, int &n)
+void BSTree::print_tree(BSTNode *p, int *n)
 {
-    if(p && n > 0)
+    if(p && *n > 0)
     {
         print_list(p->left,n);
         std::cout << p->data << " : " << p->frequency << std::endl;
-        n--;
+        (*n)--;
         print_list(p->right,n);
     }
 }
 
-void BSTree::print_list(int n)
+void BSTree::print_tree(int n)
 {
-    print_list(root, n);
+    print_list(root, &n);
 }
 
 // add more functions here..

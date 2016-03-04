@@ -18,8 +18,8 @@ private:
     std::string data;
     int frequency;
     
-    BSTNode* left;
-    BSTNode* right;
+    BSTNode *left;
+    BSTNode *right;
     
 public:
     
@@ -33,17 +33,17 @@ public:
 class BSTree {
 private:
     
-    BSTNode* root;
+    BSTNode *root;
 
     void destroy(BSTNode*);
     
     BSTNode* find(BSTNode*, std::string);
 
-    void increment_frequency(BSTNode* ptr);
+    void increment_frequency(BSTNode *ptr);
     
     void insert(BSTNode**, std::string);
     
-    void print_list(BSTNode*, int&);
+    void print_tree(BSTNode*, int*);
     
     void print_range(std::string, std::string, BSTNode*);
 
@@ -55,7 +55,7 @@ public:
     
     void insert(std::string);
     
-    void print_list(int n);
+    void print_tree(int n);
     
     void print_range(std::string, std::string); // output all the strings in the tree lexically between the parameters
 };

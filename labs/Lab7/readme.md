@@ -7,7 +7,7 @@ Let’s implement and use a binary tree and apply this to our problem from the l
 
 ### Overview
 
-You will implement part of a binary search tree. The header file `bst.h` is in the repository, along with `bst.cpp` most of them are complete. Note that the files have the same public functions as the List class, except there is a different `print` function.  `print_range` will take two strings as parameters, and print out the words in your tree lexically between those words. An explanation and the pseudo-code can be found on page 101 of your book. The code is included here for you:
+You will implement part of a binary search tree. The header file `bst.h` is in the repository, along with `bst.cpp` most of them are complete. Note that the files have the same public functions as the List class (from Lab 6), except there is a different `print` function.  `print_range` will take two strings as parameters, and print out the words in your tree lexically between those words. An explanation and the pseudo-code can be found on page 101 of your book. The code is included here for you:
 
 ```
 Algorithm RangeQuery(key1, key2, v):
@@ -45,10 +45,10 @@ In order to receive credit for the lab (attendance) you must at least:
 2. read in the entire text of one of the books in the repository
 3. display words on the screen:
    * recommended:
-   - for Alice : eat to egg
-   - for Tale  : tails to tremulous
-   - for Pride : family to fortune
-   - for War   : anxiety to aunt
+   - for Alice : eat to eels
+   - for Tale  : tails to talk
+   - for Pride : family to fashion
+   - for War   : anxiety to anything
 
 If you have completed this, you may be interested in going further:
 
