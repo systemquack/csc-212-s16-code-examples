@@ -36,5 +36,5 @@ int main(int argc, const char * argv[]) {
 
     infile.close();
         
-    return 0; */
+    return 0;
 }
