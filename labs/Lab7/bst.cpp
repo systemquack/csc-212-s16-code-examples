@@ -71,12 +71,16 @@ void BSTree::insert(std::string word)
 
 void BSTree::print_tree(BSTNode *p, int *n)
 {
-    if(p && *n > 0)
+    if(p)
     {
-        print_list(p->left,n);
-        std::cout << p->data << " : " << p->frequency << std::endl;
-        (*n)--;
-        print_list(p->right,n);
+        if(*n > 0)
+            print_list(p->left,n);
+        if(*n > 0){
+            std::cout << p->data << " : " << p->frequency << std::endl;
+            (*n)--;
+        }
+        if(*n > 0)
+            print_list(p->right,n);
     }
 }
 
