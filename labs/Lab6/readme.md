@@ -30,10 +30,3 @@ Books:
 2. Once your class is complete, you will need to write a `main` function to test and use it.  
 
 Take the `main.cpp` file from the repository, because it has code that can open a text file and read in each word from that file. Make sure you can understand what the code is doing.
-
-
-### The question you want to answer is: What words from a text are not found in the dictionary?
-
-
-Using your data structure, and the code to read in files, write code in `main.cpp` that will read in a dictionary file to your linked list. This will give you a dictionary of words that you can access with your List class. Select a book from the repository and look up all the words in that book to see if they are in the dictionary or not. Output the words that are not in the dictionary to the screen. A simple display is all that is required but you should try to output a nice summary.
-
