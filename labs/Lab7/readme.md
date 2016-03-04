@@ -9,7 +9,7 @@ Let’s implement and use a binary tree and apply this to our problem from the l
 
 You will implement part of a binary search tree. The header file `bst.h` is in the repository, along with `bst.cpp` most of them are complete. Note that the files have the same public functions as the List class, except there is a different `print` function.  `print_range` will take two strings as parameters, and print out the words in your tree lexically between those words. An explanation and the pseudo-code can be found on page 101 of your book. The code is included here for you:
 
-
+```
 Algorithm RangeQuery(key1, key2, v):
 
   Input: Search keys, key1 and key2 and a node v of a binary search tree T
@@ -28,6 +28,7 @@ Algorithm RangeQuery(key1, key2, v):
     print RangeQuery(key1, key2, T.leftChild(v))
 
 end RangeQuery
+```
 
 Note: This pseudo-code has been modified slightly for this problem.
 
