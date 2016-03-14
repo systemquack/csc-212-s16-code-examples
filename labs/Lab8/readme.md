@@ -1,63 +1,41 @@
-# Comparing Performance: Your tree vs. AVL vs. std::Map
+# STL and Templates: how does BSTree and std::Map compare ?
 
 ## Lab 8
 
-For the last two weeks, we have been working with texts. This time we will be focussed on the performance of some of the data structures we have been working with in this class. By now we are convinced of the benefits of Binary Search Trees over a simple Linked List. Let us compare our implementation to some professional ones.
+For the last two weeks, we have been working with texts. This time we will be focussed on the performance of some of the data structures we have been working with in this class. By now we are convinced of the benefits of Binary Search Trees over a simple Linked List. Let us compare our implementation to the professional ones.
 
 ### Overview
 
-We now have your BSTree, but we will add in the repository an AVL tree implemented as a template and also count the Map container from the STL. The goal is to compare these three data structures on a performance test. The benchmark is this: To read in our `dictionary.txt` file into the data structure, then search it for every word in the `Clarissa.txt` file in the repository.
+Professional programmers often make use of the data structures in this course, but are not often writing them by hand. They do it by making use of the Standard Template Library. They can also write common algorithms in a generic way, so that code can be more readily reused. C++ has a Template feature that faciliates these ideas.
 
 ### What to do in the lab
 
-Download the `dictionary.txt` file and `Clarissa.txt` file, the `avl_tree.h` header file, and starter `main.cpp` file, and start a new project. Your task is to write the `main.cpp` file to time each of the three data structures on the benchmark and write out the results (preferably) to a file. The `main.cpp` file should do something like:
+We will have a short introduction to the Standard Template Library (STL) and templates. You may want to review the slides below, as well. Once you are ready, you will be repeating the lab from last week, only this time using the `std::map` instead of your binary tree. Specifically, read in one of the texts, and then print out the first 20 words. You can use your project from last week if you like, I’ve simply repeated the code from last week here.
 
-
-1. Declare an `std::map`
-2. Set a NotFound word count to zero
-3. Mark the time as starting time
-4. Read in `dictionary.txt` to that map
-5. Mark the time as insert time
-6. Read the `Clarissa.txt` file, searching the map for each word
-7. If the word is NOT found, incrementing the count
-8. Mark the time as finishing time
-9. Report on the length of the intervals from start to insert to finish
-10. Repeat this for the other two data structures (your BSTree and avl_tree)
+To make things slightly more interesting, I’ve added a very long novel called `Clarissa.txt` which has about 600,000 words in it.
 
 
 ### Minimum Expectation for credit
 
 In order to receive credit for the lab (attendance) you must at least:
 
-1. Show the three running times from the benchmark
-2. Show the number of words not found in the dictionary
-3. Answer which data structure performed the fastest at each stage
+1. Enter the code to declare and use a `std::map`
+2. Read in the entire text of the file of your choice from the repository
+3. Display the first 20 words and their frequencies alphabetically on the screen
 
 ### Once this is done
 
-1. Use the texts from earlier labs to make a table
-2. What is the underlying structure for the `std::map` ?
+1. Add timing code to measure the amount of time it takes to read in the file
+2. Go back to your BSTree from last week and measure the time for the same text (add timing code if needed)
+3. Measure on a few texts and create a table of their values, is there a difference in the times?
 
+### References
 
-## How to use the `Avl.h` and `std::map`
+Some high-level, useful slides (http://www.slideshare.net/SreejithSree1/stl-25264696).
 
-To use `Avl.h` include also `Comparable.h` and `Avl.cc` in your project. To use them, declare a tree and comparable like this:
+More in-depth slides (http://ee.usc.edu/~redekopp/cs104/slides/L09_STL.pdf).
 
-```
-AvlTree<std::string> myTreeName;
-Comparable<std::string> * found = NULL;  // this is a pointer
-. . .
-
-  found = myTreeName.Insert(&WordToInsert);
-  if(found) {
-    std::cout << WordToInsert << “ was already in the tree.”;
-. . .
-
-  found = myTreeName.Search(WordToFind);
-  if(!found) {
-    std::cout << WordToFind << “ is not in the tree.”;
-. . .
-```
+The Template tutorial (http://www.cplusplus.com/doc/oldtutorial/templates/).
 
 The `std::map` details can be found here (http://www.cplusplus.com/reference/map/map/). Pay special attention to the `insert` and `find` functions.
 
