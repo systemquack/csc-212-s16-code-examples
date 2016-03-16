@@ -74,19 +74,19 @@ void BSTree::print_tree(BSTNode *p, int *n)
     if(p)
     {
         if(*n > 0)
-            print_list(p->left,n);
+            print_tree(p->left,n);
         if(*n > 0){
             std::cout << p->data << " : " << p->frequency << std::endl;
             (*n)--;
         }
         if(*n > 0)
-            print_list(p->right,n);
+            print_tree(p->right,n);
     }
 }
 
 void BSTree::print_tree(int n)
 {
-    print_list(root, &n);
+    print_tree(root, &n);
 }
 
 // add more functions here..
