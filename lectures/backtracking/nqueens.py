@@ -24,6 +24,7 @@ def is_safe(board, row, col, n):
 
 # recursive function to solve N Queen
 def nqueens(board, col, n):
+	print 'nqueens(board, ', col, ', 4)'
 	# base case -- all queens are placed
 	if col >= n:
 		return True
@@ -43,7 +44,6 @@ def nqueens(board, col, n):
 				board[i][col] = 0
 	# if queen cannot be placed in any row in this column ...
 	return False
-
 
 def print_board(board):
 	for row in board:
