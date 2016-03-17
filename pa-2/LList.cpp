@@ -36,9 +36,11 @@ void LinkedList::destroy() {
 }
 
 void LinkedList::destroy(LLNode *p) {
-    if (p) {
-        destroy(p->next);
-        delete p;
+    LLNode *temp;
+    while(p) {
+        temp = p;
+        p = p->next;
+        delete temp;
     }
 }
 

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "LList.h"
 
 typedef struct {
@@ -35,12 +36,12 @@ bool read_params(int argc, char **args, Params *params) {
 }
 
 int main(int argc, char **args) {
-    std::string line;
+    std::string line, raw_line;
     double lat, lon;
     std::string name;
     Params params;
 
-    clock_t tic, toc;
+    std::clock_t tic, toc;
     unsigned int count;
     LinkedList list;
 
@@ -49,27 +50,32 @@ int main(int argc, char **args) {
         // open the database
         std::ifstream myfile (params.database);
         if (myfile.is_open()) {
-            std::cerr << "Reading all records from " << params.database << " ... ";
-            tic = clock();
+            std::cerr << "Reading all records from " << params.database << " ...\n";
+            tic = std::clock();
             // iterate over all lines in the database file
-            while (getline(myfile,line)) {
-                // extract latitude, longitude, and the location words
-                lat = stod(line.substr(0,line.find_first_of(" ")));
-                line = line.substr(line.find_first_of(" ")+1);
-                lon = stod(line.substr(0,line.find_first_of(" ")));
-                name = line.substr(line.find_first_of(" ")+1);
-                // at this point you have LAT, LON, NAME
-                // TODO: insert every record into the kd-tree
-                list.insert(lat, lon, name);
+            while (getline(myfile,raw_line)) {
+                try {
+                    // extract latitude, longitude, and the location words
+                    line = raw_line;
+                    lat = stod(line.substr(0,line.find_first_of(" ")));
+                    line = line.substr(line.find_first_of(" ")+1);
+                    lon = stod(line.substr(0,line.find_first_of(" ")));
+                    name = line.substr(line.find_first_of(" ")+1);
+                    // at this point you have LAT, LON, NAME
+                    // TODO: insert every record into the kd-tree
+                    list.insert(lat, lon, name);
+                } catch(const std::exception &e) {
+                    std::cerr << "\tcould not parse line: " << raw_line << "\n"; 
+                }
             }
             myfile.close();
-            toc = clock();
-            std::cerr << "done!\n\t" << list.getSize() << " records inserted in " << (double)(toc-tic)/CLOCKS_PER_SEC << " secs\n";
+            toc = std::clock();
+            std::cerr << "\tdone! " << list.getSize() << " records inserted in " << (double)(toc-tic)/CLOCKS_PER_SEC << " secs\n";
             // print results
             std::cerr << "Fetching results ... ";
-            tic = clock();
+            tic = std::clock();
             count = list.printNeighbors(params.latitude, params.longitude, params.radius, params.filter);
-            toc = clock();
+            toc = std::clock();
             std::cerr << "done!\n\t" << count << " records fetched in " << (double)(toc-tic)/CLOCKS_PER_SEC << " secs\n";
         }
     }
