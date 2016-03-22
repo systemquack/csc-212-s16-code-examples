@@ -1,30 +1,34 @@
 import re
 import sys
 
-def printInfo(node):
-    info = {"name":"", "amenity":""}
-    keys = ["lat", "lon", "k"]
-    if len(node) > 1:
-        for line in node:
-            for w in keys:
-                match = re.search(w+"=\".*?\"", line)
-                if match:
-                    val = re.sub(w+"=|\"", "", match.group())
-                    if w == "k":
-                        info[val] = re.sub("v=|\"","",re.search("v=\".*?\"", line).group())
-                    else:
-                        info[w] = val
-        # print values
-        print info["lat"], info["lon"], info["name"].lower().replace('"',' '), "-", info["amenity"].lower().replace('"',' ')
+def getVal(key, line):
+    # grab key-value pair
+    match = re.search(key+"\s*?=\s*?\".*?\"", line)
+    assert match
+    val = re.sub(key+"\s*?=\s*?\"", "", match.group())
+    return re.sub("\"$", "", val).strip()
 
+def printInfo(node):
+    if len(node) > 1:
+        info = {"name": "", "amenity":""}
+        info["lat"] = getVal("lat", node[0])
+        info["lon"] = getVal("lon", node[0])
+        for i in range(1, len(node)):
+            if '"name"' in node[i]:
+                info["name"] = getVal("v", node[i])
+            elif '"amenity"' in node[i]:
+                info["amenity"] = getVal("v", node[i])
+        # print values
+        print info["lat"], info["lon"], info["name"].replace('"','\''), "-", info["amenity"].replace('"','\'')
+
+## parse file specified as command line argument
 with open(sys.argv[1], "rt") as fid:
     node = []
     for line in fid:
-        line = line.strip()
+        line = line.strip().lower()
         # found start node
         if line.startswith("<node"):
             if not line.endswith("/>"):
-                line = line.replace(" ", "")
                 node = [line]
         # found end node
         elif line.startswith("</node"):
@@ -32,7 +36,5 @@ with open(sys.argv[1], "rt") as fid:
             node = []
         # found a tag
         elif node:
-            if line.startswith("<tag"):
-                line = line.replace(" ", "")
-                if 'k="name"' in line or 'k="amenity"' in line:
-                    node.append(line)
+            if line.startswith("<tag") and ('"name"' in line or '"amenity"' in line):
+                node.append(line)

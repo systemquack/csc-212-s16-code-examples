@@ -23,27 +23,26 @@ double KDNode::distance(double _la, double _lo) {
 }
 
 KDTree::KDTree() {
-    root = NULL;
+
 }
 
 KDTree::~KDTree() {
-    destroy(root);
-}
 
-void KDTree::destroy() {
-    destroy(root);
-    root = NULL;
 }
 
 void KDTree::destroy(KDNode *p) {
-    if (p) {
-        destroy(p->left);
-        destroy(p->right);
-        delete p;
-    }
+
 }
 
 
-void KDTree::insert(double lat, double lon, const std::string &desc) {
-    
+void KDTree::insert(double la, double lo, const std::string &desc) {
+
+}
+
+unsigned int KDTree::printNeighbors(double la, double lo, double rad, const std::string &filter) {
+
+}
+
+unsigned int KDTree::getSize() {
+
 }

@@ -21,6 +21,7 @@ class KDNode {
 
 class KDTree {
     private:
+        unsigned int size;
         KDNode *root;
 
         void destroy(KDNode *p);
@@ -30,7 +31,8 @@ class KDTree {
         ~KDTree();
 
         void insert(double la, double lo, const std::string &desc);
-        void destroy();
+        unsigned int printNeighbors(double la, double lo, double rad, const std::string &filter);
+        unsigned int getSize();
 };
 
 #endif

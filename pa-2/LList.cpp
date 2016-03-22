@@ -30,11 +30,6 @@ LinkedList::~LinkedList() {
     destroy(head);
 }
 
-void LinkedList::destroy() {
-    destroy(head);
-    head = NULL;
-}
-
 void LinkedList::destroy(LLNode *p) {
     LLNode *temp;
     while(p) {
