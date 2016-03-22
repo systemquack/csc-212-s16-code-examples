@@ -6,6 +6,7 @@
 #include <ctime>
 #include "LList.h"
 
+// new data type to store all command line arguments
 typedef struct {
     double latitude;
     double longitude;
@@ -14,7 +15,9 @@ typedef struct {
     std::string database;
 } Params;
 
-bool read_params(int argc, char **args, Params *params) {
+// function that parses command line arguments
+bool read_args(int argc, char **args, Params *params) {
+    // if not the right number of args, print helper message
     if (argc != 6) {
         std::cout << "Usage: ./search-map <lat> <lon> <radius> <filter> <database>\n";
         std::cout << "\t<lat>\t\tLatitude of query point\n";
@@ -25,6 +28,7 @@ bool read_params(int argc, char **args, Params *params) {
         std::cout << "Example: find all places that contain 'restaurant' under a radius of 10 miles from 42.34,-71.10 in boston.txt\n";
         std::cout << "\t./search-map 42.34 -71.10 10 restaurant boston.txt\n";
         return false;
+    // else, initializes the fields of the struct 'params'
     } else {
         params->latitude = atof(args[1]);
         params->longitude = atof(args[2]);
@@ -40,13 +44,15 @@ int main(int argc, char **args) {
     double lat, lon;
     std::string name;
     Params params;
-
     std::clock_t tic, toc;
     unsigned int count;
+
+    // TODO
+    // for now a LinkedList, you should replace this by a kDTree
     LinkedList list;
 
     // if correct number of parameters
-    if (read_params(argc, args, &params)) {
+    if (read_args(argc, args, &params)) {
         // open the database
         std::ifstream myfile (params.database);
         if (myfile.is_open()) {
@@ -57,21 +63,20 @@ int main(int argc, char **args) {
                 try {
                     // extract latitude, longitude, and the location words
                     line = raw_line;
-                    lat = stod(line.substr(0,line.find_first_of(" ")));
+                    lat = std::atof(line.substr(0,line.find_first_of(" ")).c_str());
                     line = line.substr(line.find_first_of(" ")+1);
-                    lon = stod(line.substr(0,line.find_first_of(" ")));
+                    lon = std::atof(line.substr(0,line.find_first_of(" ")).c_str());
                     name = line.substr(line.find_first_of(" ")+1);
                     // at this point you have LAT, LON, NAME
-                    // TODO: insert every record into the kd-tree
                     list.insert(lat, lon, name);
                 } catch(const std::exception &e) {
-                    std::cerr << "\tcould not parse line: " << raw_line << "\n"; 
+                    std::cerr << "\tcould not parse line: " << raw_line << "\n";
                 }
             }
             myfile.close();
             toc = std::clock();
             std::cerr << "\tdone! " << list.getSize() << " records inserted in " << (double)(toc-tic)/CLOCKS_PER_SEC << " secs\n";
-            // print results
+            // make (only) one range query to the database
             std::cerr << "Fetching results ... ";
             tic = std::clock();
             count = list.printNeighbors(params.latitude, params.longitude, params.radius, params.filter);

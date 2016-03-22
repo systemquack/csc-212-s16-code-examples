@@ -39,10 +39,12 @@ void LinkedList::destroy(LLNode *p) {
     }
 }
 
+// return the number of nodes in the list
 unsigned int LinkedList::getSize() {
     return size;
 }
 
+// insert a new node at the beginning of the list
 void LinkedList::insert(double la, double lo, const std::string &desc) {
     LLNode *p = new LLNode(la, lo, desc);
     p->next = head;
@@ -50,6 +52,8 @@ void LinkedList::insert(double la, double lo, const std::string &desc) {
     size ++;
 }
 
+// print all the nodes under a distance 'rad' from 'la,lo' and where
+// filter is a non-empty substring of their description
 unsigned int LinkedList::printNeighbors(double la, double lo, double rad, const std::string &filter) {
     unsigned int count = 0;
     std::cout << "var markers = [\n";
