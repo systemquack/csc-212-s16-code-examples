@@ -1,12 +1,12 @@
 //
 //  main.cpp
-//  Heap
+//  heap
 //
 
 #include <iostream>
 #include <cstdlib>
 #include <time.h>
-#include "Heap.h"
+#include “heap.h"
 
 void fillVector(std::vector<int> &array, int n)
 {
@@ -22,7 +22,7 @@ void fillVector(std::vector<int> &array, int n)
 int main(int argc, const char * argv[]) {
     // create a random array with n elements
     std::vector<int> array;
-    fillVector(array, 1600);
+    fillVector(array, 16);
     
     // first declare a heap
     Heap myHeap;

@@ -1,8 +1,8 @@
 //
-//  Heap.cpp
+//  heap.cpp
 //  
 
-#include "Heap.h"
+#include “heap.h"
 #include <iostream>
 
 Heap::Heap() {
