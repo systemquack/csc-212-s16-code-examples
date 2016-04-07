@@ -24,6 +24,7 @@ double LLNode::distance(double _la, double _lo) {
 
 LinkedList::LinkedList() {
     head = NULL;
+    size = 0;
 }
 
 LinkedList::~LinkedList() {

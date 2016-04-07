@@ -65,7 +65,7 @@ void r_mergesort(ul_int *A, ul_int *aux, ul_int lo, ul_int hi) {
     // base case
     if (hi <= lo) return;
     // divide
-    ul_int mid = (hi + lo) / 2;
+    ul_int mid = lo + (hi - lo) / 2;
     // recursively sort halves
     r_mergesort(A, aux, lo, mid);
     r_mergesort(A, aux, mid+1, hi);
@@ -80,22 +80,6 @@ void mergesort(ul_int *A, ul_int n) {
     r_mergesort(A, aux, 0, n-1);
     // free memory
     delete [] aux;
-}
-
-void bubblesort(ul_int *A, ul_int n) {
-    ul_int temp, i, j;
-    // pass through the array n-1 times
-    for (i = 0 ; i < (n-1) ; i ++) {
-        // check for out-of-order pairs in the 'unsorted' half
-        for (j = 0 ; j < (n-i-1) ; j ++) {
-            // if A[j] and A[j+1] are out-of-order, swap them
-            if (A[j] > A[j+1]) {
-                temp = A[j+1];
-                A[j+1] = A[j];
-                A[j] = temp;
-            }
-        }
-    }
 }
 
 void insertionsort(ul_int *A, ul_int n) {
@@ -145,17 +129,17 @@ int is_sorted(ul_int *A, ul_int n) {
 }
 
 int main() {
-    const int n_algo = 5;
+    const int n_algo = 4;
     // array of function names
-    const char * fun_names[n_algo] = {"QuickSort", "MergeSort", "InsertionSort", "SelectionSort", "BubbleSort"};
+    const char * fun_names[n_algo] = {"QuickSort", "MergeSort", "InsertionSort", "SelectionSort"};
     // array of pointers to functions
-    void (*fun_ptrs[n_algo])(ul_int *, ul_int) = {&quicksort, &mergesort, &insertionsort, &selectionsort, &bubblesort};
-
-    std::cout << "Reading input sequence ...\n";
+    void (*fun_ptrs[n_algo])(ul_int *, ul_int) = {&quicksort, &mergesort, &insertionsort, &selectionsort};
 
     // read first number
     ul_int n, i;
     std::cin >> n;
+
+    std::cout << "Reading input sequence of size " << n << " ...\n";
 
     // allocate space for arrays
     ul_int *array = new ul_int[n];
@@ -167,7 +151,7 @@ int main() {
     }
 
     std::cout << "Applying sorting algorithms ...\n";
-    for (int i = 0 ; i < 2 ; i ++) {
+    for (int i = 0 ; i < n_algo ; i ++) {
         // make a copy
         std::memcpy(arr_copy, array, n*sizeof(ul_int));
         // apply algorithm and measure time
