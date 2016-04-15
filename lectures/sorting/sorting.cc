@@ -48,9 +48,16 @@ void quicksort(ul_int *A, ul_int n) {
     r_quicksort(A, 0, n-1);
 }
 
+void printa(ul_int *a, char *s, int n) {
+    std::cout << s << ": ";
+    for (int i = 0 ; i < n ; i ++)
+        std::cout << a[i] << " ";
+    std::cout << "\n";
+}
+
 void merge(ul_int *A, ul_int *aux, ul_int lo, ul_int mid, ul_int hi) {
     // copy array
-    std::memcpy(aux, A+lo, (hi-lo+1)*sizeof(ul_int));
+    std::memcpy(aux+lo, A+lo, (hi-lo+1)*sizeof(ul_int));
     // merge
     ul_int i = lo, j = mid + 1;
     for (ul_int k = lo ; k <= hi ; k ++) {
@@ -158,6 +165,9 @@ int main() {
         time_func(fun_ptrs[i], arr_copy, n, fun_names[i]);
         // check correctness
         if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
+printa(array, "original", n);
+printa(arr_copy, (char *) fun_names[i], n);
+std::cout << "---\n";
     }
 
     // free memory
