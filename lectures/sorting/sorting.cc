@@ -5,6 +5,39 @@
 
 typedef unsigned long int ul_int;
 
+
+////////////////////////////////////////////////////////////////////////////////
+// Quick sort with 3-way partitioning
+////////////////////////////////////////////////////////////////////////////////
+void three_way_partition(ul_int *A, ul_int lo, ul_int hi, ul_int *p1, ul_int *p2) {
+    // your code here
+}
+
+void r_three_way_quicksort(ul_int *A, ul_int lo, ul_int hi) {
+    // base case
+    if (hi <= lo) return;
+    // these are the two pivots that should be updated by three_way_partition
+    ul_int p1 = lo, p2 = hi;
+    // partition
+    three_way_partition(A, lo, hi, &p1, &p2);
+    // recursively sort halves
+    // also avoid negative indices because indices are unsigned int
+    if (p1 > 0) r_three_way_quicksort(A, lo, p1-1);
+    r_three_way_quicksort(A, p2+1, hi);
+}
+
+void three_way_quicksort(ul_int *A, ul_int n) {
+    // shuffle the array
+    std::random_device rng;
+    std::mt19937 urng(rng());
+    std::shuffle(A, A+n, urng);
+    // call recursive quicksort
+    r_three_way_quicksort(A, 0, n-1);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Quick sort with 2-way partitioning
+////////////////////////////////////////////////////////////////////////////////
 ul_int partition(ul_int *A, ul_int lo, ul_int hi) {
     ul_int temp, i = lo, j = hi + 1;
     while (1) {
@@ -34,7 +67,8 @@ void r_quicksort(ul_int *A, ul_int lo, ul_int hi) {
     if (hi <= lo) return;
     // partition
     ul_int p = partition(A, lo, hi);
-    // recursively sort halves (also avoid negative indices)
+    // recursively sort halves
+    // also avoid negative indices because indices are unsigned int
     if (p > 0) r_quicksort(A, lo, p-1);
     r_quicksort(A, p+1, hi);
 }
@@ -48,13 +82,9 @@ void quicksort(ul_int *A, ul_int n) {
     r_quicksort(A, 0, n-1);
 }
 
-void printa(ul_int *a, char *s, int n) {
-    std::cout << s << ": ";
-    for (int i = 0 ; i < n ; i ++)
-        std::cout << a[i] << " ";
-    std::cout << "\n";
-}
-
+////////////////////////////////////////////////////////////////////////////////
+// Merge sort
+////////////////////////////////////////////////////////////////////////////////
 void merge(ul_int *A, ul_int *aux, ul_int lo, ul_int mid, ul_int hi) {
     // copy array
     std::memcpy(aux+lo, A+lo, (hi-lo+1)*sizeof(ul_int));
@@ -89,6 +119,9 @@ void mergesort(ul_int *A, ul_int n) {
     delete [] aux;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Quadratic algorithms
+////////////////////////////////////////////////////////////////////////////////
 void insertionsort(ul_int *A, ul_int n) {
     ul_int temp, i, j;
     // grows the left part (sorted)
@@ -120,6 +153,9 @@ void selectionsort(ul_int *A, ul_int n) {
     }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+// Auxiliary functions
+////////////////////////////////////////////////////////////////////////////////
 void time_func(void (*f_ptr)(ul_int *, ul_int), ul_int *array, ul_int n, const char *name) {
     clock_t tic = clock();
     (*f_ptr)(array, n);
@@ -135,12 +171,22 @@ int is_sorted(ul_int *A, ul_int n) {
     return 1;
 }
 
+void print_array(ul_int *array, char *name, int n) {
+    std::cout << name << ": ";
+    for (int i = 0 ; i < n ; i ++)
+        std::cout << array[i] << " ";
+    std::cout << "\n";
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Main function
+////////////////////////////////////////////////////////////////////////////////
 int main() {
-    const int n_algo = 4;
+    const int n_algo = 5;
     // array of function names
-    const char * fun_names[n_algo] = {"QuickSort", "MergeSort", "InsertionSort", "SelectionSort"};
+    const char * fun_names[n_algo] = {"3-Way QuickSort", "QuickSort", "MergeSort", "InsertionSort", "SelectionSort"};
     // array of pointers to functions
-    void (*fun_ptrs[n_algo])(ul_int *, ul_int) = {&quicksort, &mergesort, &insertionsort, &selectionsort};
+    void (*fun_ptrs[n_algo])(ul_int *, ul_int) = {&three_way_quicksort, &quicksort, &mergesort, &insertionsort, &selectionsort};
 
     // read first number
     ul_int n, i;
@@ -165,9 +211,6 @@ int main() {
         time_func(fun_ptrs[i], arr_copy, n, fun_names[i]);
         // check correctness
         if (! is_sorted(arr_copy,n)) std::cout << "Incorrect !!!\n";
-printa(array, "original", n);
-printa(arr_copy, (char *) fun_names[i], n);
-std::cout << "---\n";
     }
 
     // free memory
