@@ -10,7 +10,7 @@ QuickSort was invented by C.A.R. Hoare in 1960 and has been thoroughly studied a
 
 The basic idea is to use divide-and-conquer, that is to partition the input into parts or partitions, then sort the partitions recursively. The partitions are determined by scanning once through the input and putting all the data less than some pivot value in one partition, and all the data greater than the pivot in another. Selecting a good pivot, optimizing the recursion (or finding a place to stop), and changing the number of partitions have all been areas of improvement to the basic algorithm.  In this lab, we will use three partitions.
 
-E. Dijkstra also made an improvement to QuickSort and this is the one you will code. The idea is to make 3 partitions, one with items **less** than the key, one with items **equal** to the key, and one with items **greater* than the key. 
+E. Dijkstra also made an improvement to QuickSort and this is the one you will code. The idea is to make 3 partitions, one with items **less** than the key, one with items **equal** to the key, and one with items **greater** than the key. 
 
 At each single pass through the array, three partitions are made. As _i_ makes it way through the array the following properties hold:
 
