@@ -12,11 +12,11 @@ The basic idea is to use divide-and-conquer, that is to partition the input into
 
 E. Dijkstra also made an improvement to QuickSort and this is the one you will code. The idea is to make 3 partitions, one with items **less** than the key, one with items **equal** to the key, and one with items **greater** than the key. 
 
-At each single pass through the array, three partitions are made. As _i_ makes it way through the array the following properties hold:
+At each single pass through the array, three partitions are made. As _i_ makes its way through the array the following properties hold:
 
 1. an index `lt` such that `a[lo .. lt-1] < v` 
 
-2. an index ‘gt’ such that `a[gt+1 .. hi] > v`
+2. an index `gt` such that `a[gt+1 .. hi] > v`
 
 3. an index `i` such that `a[lt .. i-1] = v`
 
@@ -78,21 +78,32 @@ There is also a python script `gen-numbers.py` that you will use to generate ran
 The python script will generate lists of numbers for your program to sort. You use it by passing it the number of numbers you want, and a second parameter to indicate the upper limit of the range of numbers. Here are two examples:
 
 I want to get 100 numbers from 0-9: (and write it to a file called `input.txt`)
+
+```
 python gen-numbers.py 100 10 > input.txt
+```
+
 
 I want to get 10000 numbers from 0 to 135:
+
+```
 python gen-numbers.py 10000 136 > input.txt
+```
 
 
 ### Using the Main Program
 
 If you compiled your program to an executable called `sorting` then you can write:
+
+```
 ./sorting < input.txt
+```
+
 and the numbers you generated will be applied to the program.
 
 ### What Must You Do
 
-You must fill in the empty function `qsort3` to perform the 3-way QuickSort routine.
+You must fill in the empty function `qsort3` to perform the 3-way QuickSort function.
 
 Then, when it is working, run it several times on data you create to be able to discuss the following:
 
