@@ -11,8 +11,6 @@ void exchange(ul_int *x, ul_int *y) {
     // add this code
 }
 
-
-
 void qsort3(ul_int *A, int lo, int hi) {
 
     // add this code
@@ -21,8 +19,6 @@ void qsort3(ul_int *A, int lo, int hi) {
 void quicksort3(ul_int *A, ul_int n) {
     // add call to qsort3 ..
 }
-
-
 
 ul_int partition(ul_int *A, ul_int lo, ul_int hi) {
     ul_int temp, i = lo, j = hi + 1;

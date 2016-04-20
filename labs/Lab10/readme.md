@@ -112,4 +112,3 @@ Compare the empirical performance of MergeSort, QuickSort and 3-way QuickSort. I
 ### Minimum Expectation for Credit
 
 You must complete the `qsort3` function and take part in the discussion during the last 10 minutes of class.
-
