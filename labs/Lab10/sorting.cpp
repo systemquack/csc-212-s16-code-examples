@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iterator>
 #include <random>
+#include <algorithm>
+#include <cstring>
 
 typedef unsigned long int ul_int;
 
